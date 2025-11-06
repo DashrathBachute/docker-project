@@ -17,12 +17,7 @@ public class Classs {
 		List<Integer> dup =  IntStream.of(arr).boxed().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().stream().filter(entry -> entry.getValue() > 1).map(Map.Entry :: getKey).collect(Collectors.toList());
 		System.out.println(dup);
 		
-		
-		
-		
-	 
-		
-		
+
 
 	}
  
