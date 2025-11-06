@@ -1,17 +1,15 @@
-# Step 1: Use a lightweight JDK image
-FROM openjdk:17-jdk-slim
+# Step 1: Use a base image with Java 17
+FROM eclipse-temurin:17-jdk-jammy
 
-# Step 2: Add a label (optional)
-LABEL maintainer="you@example.com"
-
-# Step 3: Set the working directory
+# Step 2: Set working directory
 WORKDIR /app
 
-# Step 4: Copy the JAR from target folder into the container
-COPY target/FirstDockerProject-0.0.1-SNAPSHOT.jar FirstDockerProject-0.0.1-SNAPSHOT.jar
+# Step 3: Copy the built jar file into the image
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
 
-# Step 5: Expose the port your app uses
+# Step 4: Expose port 8080
 EXPOSE 8080
 
-# Step 6: Run the JAR file
-ENTRYPOINT ["java","-jar","FirstDockerProject-0.0.1-SNAPSHOT.jar"]
+# Step 5: Run the Spring Boot application
+ENTRYPOINT ["java","-jar","/app/app.jar"]
