@@ -1,0 +1,10 @@
+logging:
+  file:
+    path: E:/logs/dockerproject.log
+
+payu:
+  merchant-key: your_merchant_key
+  merchant-salt: your_merchant_salt
+  payment-url: https://test.payu.in/_payment
+  success-url: http://localhost:8080/api/payu/success
+  failure-url: http://localhost:8080/api/payu/failure
