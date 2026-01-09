@@ -1,40 +1,53 @@
 package com.example.demo.controller;
 
-public class MaximumSubarrayNaive {
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
+public class MaximumSubarrayNaive  {
+
 
 	public static void main(String[] args) {
 		
-		
-        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int k = 4;
-        System.out.println("Maximum Subarray Sum = " + maxSubArray(arr,k));
+	  
+	  String[] chas = str.toLowerCase().split("");
+	  
+	   System.out.println(Arrays.stream(chas).collect(Collectors.groupingBy(v -> v ,LinkedHashMap :: new, Collectors.counting())).entrySet().stream().filter(entry -> entry.getValue() == 1).findFirst().get());
+	   
+	   
+	   
+	   
+	    map.chars().mapToObj(l -> (char) l).distinct().forEach(ch -> System.out.print(ch));
+	   
+	    String s = "Hello this is Hello";
+//	    String[] ch = s.split(" ");
+	    
+//	    Arrays.stream(ch).collect(Collectors.groupingBy(x -> x, Collectors.counting())).entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.naturalOrder())).forEach(System.out::println);;
+	    
+	    
+	    
+	    
+	    
+	    
+	   
+	    String[] ch = s.split(" ");
+	    
+	    
+	    Arrays.stream(ch).collect(Collectors.groupingBy(x -> x, Collectors.counting())).entrySet().stream().sorted(Comparator.comparing(entry -> entry.getValue()).reversed()).forEach(System.out::println);
+	    
 
-
-        
-		
-
+	   
+	   
+	   
+	   
+	   
+	  
+	 
+	
 	}
-
-	private static int maxSubArray(int[] arr,int k) {
-		int n = arr.length;
-		int maxSum = Integer.MIN_VALUE;
-		int windowSum = 0;
-		
-		
-		for(int i = 0; i<k ; i++) {
-			windowSum = windowSum + arr[i];
-		}
-		
-		maxSum = windowSum;
-		
-		
-		for(int i = k; i< n; i++) {
-			windowSum = windowSum + arr[i]-arr[i-k];
-			maxSum = Math.max(maxSum, windowSum);
-		}
-		
-		return maxSum;
-		
-	}
-
 }

@@ -8,3 +8,17 @@ payu:
   payment-url: https://test.payu.in/_payment
   success-url: http://localhost:8080/api/payu/success
   failure-url: http://localhost:8080/api/payu/failure
+
+spring:
+  datasource:
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 300000
+      max-lifetime: 1800000
+      connection-timeout: 60000
+      auto-commit: true
+      driver-class-name: org.postgresql.Driver
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/docker_demo
+    password: root
